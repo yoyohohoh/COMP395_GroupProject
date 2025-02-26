@@ -1,40 +1,47 @@
 using System;
 using System.Collections;
-using System.IO;  // For file handling
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 public class ArrivalProcess : MonoBehaviour
 {
     public GameObject customerPrefab;
     public Transform customerSpawnPlace;
     public SimulationParameters simulationParameters;
-    public bool generateArrivals;
+    public bool generateArrivals = true;
+    public int customerCount;
 
-    private string filePath;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float startTime;
+    public float endTime;
+    public float interArrivalTime;
     void Start()
     {
+        customerCount = 0;
+        startTime = simulationParameters.StartTime;
+        endTime = simulationParameters.EndTime;
         StartCoroutine(GenerateArrivals());
     }
 
-    // Coroutine to generate customer arrivals based on inter-arrival time
     private IEnumerator GenerateArrivals()
     {
         while (generateArrivals)
         {
-            // Instantiate a customer at the spawn location
             Instantiate(customerPrefab, customerSpawnPlace.position, Quaternion.identity);
-
-            // Calculate inter-arrival time using exponential distribution
-            float interArrivalTime = -Mathf.Log(1 - UnityEngine.Random.value) / simulationParameters.lambda;
-
-            // Print to console (optional)
-            print($"interArrivalTime = {interArrivalTime}");
-
-            // Wait for the calculated inter-arrival time before generating the next arrival
-            yield return new WaitForSeconds(interArrivalTime);
+            customerCount++;
+            interArrivalTime = -Mathf.Log(1 - UnityEngine.Random.value) / simulationParameters.lambda;
+            yield return new WaitForSeconds(interArrivalTime * simulationParameters.TimeScale);
         }
     }
 
+    public void Update()
+    {
+        if(generateArrivals)
+        {
+            startTime += Time.deltaTime;
+            if (startTime >= endTime)
+            {
+                generateArrivals = false;
+            }
+        }
+    }
 }

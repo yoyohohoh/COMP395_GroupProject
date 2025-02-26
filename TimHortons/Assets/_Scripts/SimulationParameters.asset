@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SimulationParameters
   m_EditorClassIdentifier: 
   SimulationName: Tim Hortons
-  TimeScale: 1
+  TimeScale: 10
   dt: 0.02
   StartTime: 0
-  EndTime: 300
+  EndTime: 60
   lambda: 32
   mu: 34
