@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8576967137652367913}
   - component: {fileID: 9018263005733397743}
   - component: {fileID: 8663067851311006768}
+  - component: {fileID: 5811117661082416425}
   m_Layer: 0
   m_Name: Customer
   m_TagString: Untagged
@@ -124,12 +125,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c4ecc1937c7824dab5c8db59d3229e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  simulationParameters: {fileID: 0}
-  waypointsRoute1: []
-  waypointsRoute2: []
-  waypointsRoute3: []
-  moveSpeed: 5
-  arrivalProcess: {fileID: 0}
+  waypoints: {fileID: 0}
+  selectedRoute: []
+  currentWaypointIndex: 0
+--- !u!54 &5811117661082416425
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2732638555183815567}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 84
+  m_CollisionDetection: 0
 --- !u!1001 &3575798067929771493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -138,6 +163,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8092694862333274330}
     m_Modifications:
+    - target: {fileID: 7478225697108807222, guid: 6fb37f825ee63264b9c2600bf1a52006, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 67742350dd927224483011b2c109953c, type: 2}
     - target: {fileID: 7478225697115775088, guid: 6fb37f825ee63264b9c2600bf1a52006, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

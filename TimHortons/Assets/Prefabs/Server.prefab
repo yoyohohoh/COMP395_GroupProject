@@ -119,6 +119,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2358010212910373785}
     m_Modifications:
+    - target: {fileID: 6252356961367914557, guid: 2db03e7c8a8135146b280e5da7e0289c, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 103a90a3600679b4697f20cc5792b742, type: 3}
+    - target: {fileID: 6252356961367914557, guid: 2db03e7c8a8135146b280e5da7e0289c, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 467b083dccaee4e4abd61b3aaee7b0f8, type: 2}
     - target: {fileID: 6252356961376966267, guid: 2db03e7c8a8135146b280e5da7e0289c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
