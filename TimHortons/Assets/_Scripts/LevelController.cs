@@ -1,8 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LevelController : MonoBehaviour
 {
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,6 +23,7 @@ public class LevelController : MonoBehaviour
                 SceneManager.LoadScene(1);
             }
         }
+        
     }
 
     public void MainMenu()

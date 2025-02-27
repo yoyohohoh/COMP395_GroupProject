@@ -42,6 +42,7 @@ public class ArrivalProcess : MonoBehaviour
             if (startTime >= endTime)
             {
                 generateArrivals = false;
+                GameObject.Find("DataKeeper").GetComponent<DataKeeper>().totalCustomerCount = customerCount;
                 SceneManager.LoadScene(2);
             }
         }
