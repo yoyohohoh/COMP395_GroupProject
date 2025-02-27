@@ -24,6 +24,7 @@ public class Waypoints : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.timeScale == 0f) return;
         if (arrivalProcess.generateArrivals)
         {
             currentRouteIndex = arrivalProcess.customerCount % 3;

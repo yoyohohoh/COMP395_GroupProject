@@ -437,6 +437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _move: {x: 0, y: 0}
   _velocity: 10
+  rotationSpeed: 0
   isWalking: 0
   animator: {fileID: 1186360299}
 --- !u!143 &91572815
