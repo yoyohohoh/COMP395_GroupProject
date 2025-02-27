@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms;
 
 public class ArrivalProcess : MonoBehaviour
@@ -41,6 +42,7 @@ public class ArrivalProcess : MonoBehaviour
             if (startTime >= endTime)
             {
                 generateArrivals = false;
+                SceneManager.LoadScene(2);
             }
         }
     }
