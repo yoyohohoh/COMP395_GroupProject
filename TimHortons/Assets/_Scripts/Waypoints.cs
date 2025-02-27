@@ -10,8 +10,10 @@ public class Waypoints : MonoBehaviour
     public Transform[] currentRoute;
     private int currentRouteIndex = 0;
     ArrivalProcess arrivalProcess;
+    public float arrivalTime;
     public float serviceTime;
     public float waitTime;
+    public int customerCount;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,6 +30,8 @@ public class Waypoints : MonoBehaviour
             currentRoute = waypointsRoutes[currentRouteIndex];
             serviceTime = -Mathf.Log(1 - UnityEngine.Random.value) / simulationParameters.mu;
             waitTime = -Mathf.Log(1 - UnityEngine.Random.value) / simulationParameters.wt;
+            customerCount = arrivalProcess.customerCount;
+            arrivalTime = arrivalProcess.interArrivalTime;
         }
     }
 }

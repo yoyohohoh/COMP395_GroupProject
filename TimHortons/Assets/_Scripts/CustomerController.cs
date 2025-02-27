@@ -1,13 +1,16 @@
 using System.Collections;
 using UnityEngine;
+using TMPro;
 
-public class WaypointMover : MonoBehaviour
+public class CustomerController : MonoBehaviour
 {
     public Waypoints waypoints;
     public Transform[] selectedRoute;
     public int currentWaypointIndex = 0;
     private bool hasRotated = false; // Track if rotation has been done
     private float moveSpeed;
+    [SerializeField] TextMeshPro frontTag;
+    [SerializeField] TextMeshPro backTag;
 
     void Start()
     {
@@ -26,6 +29,13 @@ public class WaypointMover : MonoBehaviour
         }
 
         StartCoroutine(MoveThroughWaypoints());
+
+        frontTag.text = "ID: " + waypoints.customerCount 
+            + "\nA: " + waypoints.arrivalTime.ToString("F2")
+            + "\nW: " + waypoints.waitTime.ToString("F2")
+            + "\nS: " + waypoints.serviceTime.ToString("F2");
+
+        backTag.text = frontTag.text;
     }
 
     void Update()
@@ -53,7 +63,8 @@ public class WaypointMover : MonoBehaviour
             if (currentWaypointIndex == 1 && !hasRotated)
             {
                 yield return new WaitForSeconds(waypoints.waitTime); // Wait before rotating
-                yield return StartCoroutine(Rotate180Degrees()); // Rotate before proceeding
+                //yield return StartCoroutine(Rotate180Degrees()); // Rotate before proceeding
+                transform.rotation *= Quaternion.Euler(0, 180, 0);
                 hasRotated = true; // Ensure rotation happens only once
             }
 

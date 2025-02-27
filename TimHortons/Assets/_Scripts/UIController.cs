@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI clockTime;
     [SerializeField] private TextMeshProUGUI serviceTime;
     [SerializeField] private TextMeshProUGUI waitingTime;
+    [SerializeField] private TextMeshProUGUI restart;
 
     [SerializeField] private ArrivalProcess arrivalProcess;
     [SerializeField] private Waypoints waypoints;
@@ -20,6 +22,8 @@ public class UIController : MonoBehaviour
     public int seconds;
 
     public bool isShowing;
+    public bool isShowingTag;
+    public bool isPausingGame;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -55,11 +59,38 @@ public class UIController : MonoBehaviour
         serviceTime.enabled = isShowing;
         waitingTime.enabled = isShowing;
 
+        //find list of game object with tag "DataTag"
+        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("DataTag");
+
+        foreach (GameObject obj in objectsWithTag)
+        {
+            obj.SetActive(isShowingTag);
+        }
+
+        Time.timeScale = isPausingGame ? 0f : 1f;
+        
     }
 
     public void ShowingData()
     { 
         if (isShowing) { isShowing = false; }
         else { isShowing = true; }
+    }
+
+    public void ShowingTag()
+    {
+        if (isShowingTag) { isShowingTag = false; }
+        else { isShowingTag = true; }
+    }
+
+    public void PauseGame()
+    {
+        if (isPausingGame) { isPausingGame = false; }
+        else { isPausingGame = true; }
+    }
+
+    public void ResumeGame()
+    {
+        SceneManager.LoadScene(0);
     }
 }
