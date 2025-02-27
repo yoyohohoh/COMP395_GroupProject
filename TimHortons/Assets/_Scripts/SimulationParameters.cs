@@ -14,4 +14,5 @@ public class SimulationParameters : ScriptableObject
     [Header("M/M/1 Queue Parameters")]
     public float lambda = 32f;  // Arrival rate
     public float mu = 34f;      // Service rate
+    public float wt = 28f;      // Waiting inLine Time
 }

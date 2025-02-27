@@ -11,11 +11,12 @@ public class UIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI waitingTime;
 
     [SerializeField] private ArrivalProcess arrivalProcess;
-
+    [SerializeField] private Waypoints waypoints;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         arrivalProcess = GameObject.Find("CustomerArrival").GetComponent<ArrivalProcess>();
+        waypoints = GameObject.Find("Waypoints").GetComponent<Waypoints>();
     }
 
     // Update is called once per frame
@@ -30,6 +31,9 @@ public class UIController : MonoBehaviour
         int seconds = totalSeconds % 60;
 
         clockTime.text = string.Format("Clock Time: {0:D2}:{1:D2}:{2:D2}", hours, minutes, seconds);
+
+        serviceTime.text = "Service Time: " + waypoints.serviceTime.ToString("F2") + "mins";
+        waitingTime.text = "Waiting Time: " + waypoints.waitTime.ToString("F2") + "mins";
 
     }
 }

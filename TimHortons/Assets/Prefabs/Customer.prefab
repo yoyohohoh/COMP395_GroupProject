@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8568468497925420290}
   - component: {fileID: 8576967137652367913}
   - component: {fileID: 9018263005733397743}
+  - component: {fileID: 8663067851311006768}
   m_Layer: 0
   m_Name: Customer
   m_TagString: Untagged
@@ -111,6 +112,24 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8663067851311006768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2732638555183815567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c4ecc1937c7824dab5c8db59d3229e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  simulationParameters: {fileID: 0}
+  waypointsRoute1: []
+  waypointsRoute2: []
+  waypointsRoute3: []
+  moveSpeed: 5
+  arrivalProcess: {fileID: 0}
 --- !u!1001 &3575798067929771493
 PrefabInstance:
   m_ObjectHideFlags: 0

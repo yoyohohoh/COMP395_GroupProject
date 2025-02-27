@@ -8,7 +8,7 @@ public class ArrivalProcess : MonoBehaviour
     public GameObject customerPrefab;
     public Transform customerSpawnPlace;
     public SimulationParameters simulationParameters;
-    public bool generateArrivals = true;
+    public bool generateArrivals;
     public int customerCount;
 
     public float startTime;
