@@ -20,7 +20,7 @@ public class Clock : MonoBehaviour
     public float clockSpeed = 1.0f;     // 1.0f = realtime, < 1.0f = slower, > 1.0f = faster
 
     //-- internal vars
-    float msecs = 0;
+    //float msecs = 0;
 
     void Start()
     {
