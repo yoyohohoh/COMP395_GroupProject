@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
+    private InputSystem_Actions _inputs;
     [SerializeField] private Text totalCustomerNo;
     [SerializeField] private Text times;
     [SerializeField] private TextMeshProUGUI totalCustomer;
@@ -24,6 +25,16 @@ public class UIController : MonoBehaviour
     public bool isShowing;
     public bool isShowingTag;
     public bool isPausingGame;
+
+    private void Awake()
+    {
+        _inputs = new InputSystem_Actions();
+
+        _inputs.Player.Jump.performed += context => PauseGame();
+    }
+
+    private void OnEnable() => _inputs.Enable();
+    private void OnDisable() => _inputs.Disable();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
