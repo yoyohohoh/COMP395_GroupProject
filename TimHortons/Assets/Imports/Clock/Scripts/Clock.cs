@@ -13,7 +13,7 @@ public class Clock : MonoBehaviour
     public GameObject pointerSeconds;
     public GameObject pointerMinutes;
     public GameObject pointerHours;
-
+    public SimulationParameters simulationParameters;
     [SerializeField] UIController uiController;
 
     //-- time speed factor

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms;
 
 public class UIController : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private ArrivalProcess arrivalProcess;
     [SerializeField] private Waypoints waypoints;
 
+    public SimulationParameters simulationParameters;
     public int hours;
     public int minutes;
     public int seconds;
@@ -51,7 +53,7 @@ public class UIController : MonoBehaviour
         totalCustomer.text = "Today's Customer: " + arrivalProcess.customerCount.ToString();
         arrivalTime.text = "Arrival Time: " + arrivalProcess.interArrivalTime.ToString("F2") + " mins";
 
-        int totalSeconds = Mathf.FloorToInt(arrivalProcess.startTime * 360);
+        int totalSeconds = Mathf.FloorToInt(arrivalProcess.startTime * (3600 / simulationParameters.TimeScale)); // 1hr = 3600s
         hours = totalSeconds / 3600;
         minutes = (totalSeconds % 3600) / 60;
         seconds = totalSeconds % 60;

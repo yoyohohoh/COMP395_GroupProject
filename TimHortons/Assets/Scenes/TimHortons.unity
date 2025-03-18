@@ -2577,6 +2577,7 @@ MonoBehaviour:
   restart: {fileID: 0}
   arrivalProcess: {fileID: 0}
   waypoints: {fileID: 0}
+  simulationParameters: {fileID: 11400000, guid: 1e66d38161191944696fb5bccf244d3c, type: 2}
   hours: 0
   minutes: 0
   seconds: 0
@@ -10419,7 +10420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customerPrefab: {fileID: 2732638555183815567, guid: 5a9f9bfc690d9d441bfeada811268e2d, type: 3}
   customerSpawnPlace: {fileID: 905631175}
-  simulationParameters: {fileID: 11400000, guid: f262828d63bf3df4594cdc5f32973278, type: 2}
+  simulationParameters: {fileID: 11400000, guid: 1e66d38161191944696fb5bccf244d3c, type: 2}
   generateArrivals: 1
   customerCount: 0
   startTime: 0
