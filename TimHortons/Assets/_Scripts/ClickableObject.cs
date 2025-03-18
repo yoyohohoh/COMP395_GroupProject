@@ -5,6 +5,7 @@ public class ClickableObject : MonoBehaviour
 {
     private InputSystem_Actions _inputs;
     private InputAction clickAction; // Assign this via Inspector
+    public string objectName;
 
     private void Awake()
     {
@@ -29,6 +30,9 @@ public class ClickableObject : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
             Debug.Log("Clicked on: " + hit.transform.name);
+            objectName = hit.transform.name;
+
+            GameObject.Find("CoffeeMaker").GetComponent<CoffeeMakerController>().objectName = objectName;
         }
     }
 }
