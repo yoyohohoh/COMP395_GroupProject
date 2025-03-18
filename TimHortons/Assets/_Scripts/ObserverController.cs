@@ -29,12 +29,13 @@ public class ObserverController : MonoBehaviour
         _controller.Move(movement);
 
         isWalking = movement.sqrMagnitude > 0.0001f;
-        animator.SetBool("isWalking", isWalking);
+        if(animator != null)
+            { animator.SetBool("isWalking", isWalking); }
 
-        if (isWalking)
-        {
-            RotateCharacter();
-        }
+        //if (isWalking)
+        //{
+        //    RotateCharacter();
+        //}
     }
 
     private void RotateCharacter()

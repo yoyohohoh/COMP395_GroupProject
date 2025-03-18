@@ -20,10 +20,14 @@ public class Clock : MonoBehaviour
     public float clockSpeed = 1.0f;     // 1.0f = realtime, < 1.0f = slower, > 1.0f = faster
 
     //-- internal vars
-    //float msecs = 0;
+    float msecs = 0;
 
     void Start()
     {
+        if (simulationParameters == null)
+        {
+            realTime = true;
+        }
         //-- set real time
         if (realTime)
         {
@@ -31,35 +35,43 @@ public class Clock : MonoBehaviour
             minutes = System.DateTime.Now.Minute;
             seconds = System.DateTime.Now.Second;
         }
-        uiController = GameObject.Find("UIController").GetComponent<UIController>();
+        else
+        {
+            uiController = GameObject.Find("UIController").GetComponent<UIController>();
+        }
+
 
     }
 
     void Update()
     {
-        //-- calculate time
-        //msecs += Time.deltaTime * clockSpeed;
-        //if (msecs >= 1.0f)
-        //{
-        //    msecs -= 1.0f;
-        //    seconds++;
-        //    if (seconds >= 60)
-        //    {
-        //        seconds = 0;
-        //        minutes++;
-        //        if (minutes > 60)
-        //        {
-        //            minutes = 0;
-        //            hour++;
-        //            if (hour >= 24)
-        //                hour = 0;
-        //        }
-        //    }
-        //}
-
-        hour = 8 + uiController.hours;
-        minutes = uiController.minutes;
-        seconds = uiController.seconds;
+        if (realTime)
+        {
+            msecs += Time.deltaTime * clockSpeed;
+            if (msecs >= 1.0f)
+            {
+                msecs -= 1.0f;
+                seconds++;
+                if (seconds >= 60)
+                {
+                    seconds = 0;
+                    minutes++;
+                    if (minutes > 60)
+                    {
+                        minutes = 0;
+                        hour++;
+                        if (hour >= 24)
+                            hour = 0;
+                    }
+                }
+            }
+        }
+        else
+        {
+            hour = 8 + uiController.hours;
+            minutes = uiController.minutes;
+            seconds = uiController.seconds;
+        }
         //-- calculate pointer angles
         float rotationSeconds = (360.0f / 60.0f) * seconds;
         float rotationMinutes = (360.0f / 60.0f) * minutes;
