@@ -1,17 +1,27 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CoffeeMakerController : MonoBehaviour
 {
     public int totalSteps;
     public List<int> sequence;
+    public Text stepText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Update()
     {
-        
+        if (CheckSteps())
+        { 
+            stepText.text = "Make Coffee"; 
+        }
+        else
+        {
+            stepText.text = "Making Coffee";
+        }
     }
 
-    public void CheckSteps()
+    public bool CheckSteps()
     {
         if (sequence.Count == totalSteps)
         {
@@ -21,27 +31,54 @@ public class CoffeeMakerController : MonoBehaviour
                 if (sequence[i] != i)
                 {
                     Debug.Log("Wrong sequence");
-                    return;
+                    return false;
                 }
             }
             Debug.Log("Correct sequence");
+            return true;
         }
         else if (sequence.Count > totalSteps)
         {
             Debug.Log("Too many steps have been completed");
+            return false;
         }
         else
         {
             Debug.Log("Not all steps have been completed");
+            return false;
         }
     }
-    void RemoveEverything()
+
+    public void ResetSteps()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void MakeCoffee()
+    {
+        if (CheckSteps())
+        { 
+            Debug.Log("Make coffee");
+            // load next scene
+        }
+        else
+        {
+            Debug.Log("Not all steps have been completed");
+            ResetSteps();
+        }
+    }
+
+    public void RemoveEverything()
     {
         foreach (Transform child in transform)
         {
             child.gameObject.SetActive(false);
         }
         transform.Find("Glass").gameObject.SetActive(true);
+        if(sequence.Count == totalSteps)
+        {
+            sequence.Clear();
+        }
     }
     // Update is called once per frame
     public void AddItems(string objectName)

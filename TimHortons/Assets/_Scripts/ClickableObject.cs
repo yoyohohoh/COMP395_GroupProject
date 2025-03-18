@@ -31,7 +31,7 @@ public class ClickableObject : MonoBehaviour
         {
             Debug.Log("Clicked on: " + hit.transform.name);
             objectName = hit.transform.name;
-
+            GameObject.Find(objectName).transform.Find("Juice")?.gameObject.SetActive(false);
             GameObject.Find("CoffeeMaker").GetComponent<CoffeeMakerController>().AddItems(objectName);
         }
     }
