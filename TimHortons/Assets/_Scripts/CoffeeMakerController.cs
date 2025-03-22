@@ -1,13 +1,19 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CoffeeMakerController : MonoBehaviour
 {
-    public int totalSteps;
-    public List<int> sequence;
+    public List<string> taskSequence;
+    public List<string> playerSequence;
     public Text stepText;
+
+    private void Start()
+    {
+
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Update()
     {
@@ -23,12 +29,12 @@ public class CoffeeMakerController : MonoBehaviour
 
     public bool CheckSteps()
     {
-        if (sequence.Count == totalSteps)
+        if (playerSequence.Count == taskSequence.Count)
         {
             Debug.Log("Checking steps");
-            for (int i = 0; i < totalSteps; i++)
+            for (int i = 0; i < taskSequence.Count; i++)
             {
-                if (sequence[i] != i)
+                if (playerSequence[i] != taskSequence[i])
                 {
                     Debug.Log("Wrong sequence");
                     return false;
@@ -37,7 +43,7 @@ public class CoffeeMakerController : MonoBehaviour
             Debug.Log("Correct sequence");
             return true;
         }
-        else if (sequence.Count > totalSteps)
+        else if (playerSequence.Count > taskSequence.Count)
         {
             Debug.Log("Too many steps have been completed");
             return false;
@@ -75,9 +81,10 @@ public class CoffeeMakerController : MonoBehaviour
             child.gameObject.SetActive(false);
         }
         transform.Find("Glass").gameObject.SetActive(true);
-        if(sequence.Count == totalSteps)
+
+        if(playerSequence.Count == taskSequence.Count)
         {
-            sequence.Clear();
+            playerSequence.Clear();
         }
     }
     // Update is called once per frame
@@ -89,25 +96,37 @@ public class CoffeeMakerController : MonoBehaviour
                 Debug.Log("Adding ice to the coffee");
                 RemoveEverything();
                 transform.Find("AddIce").gameObject.SetActive(true);
-                sequence.Add(0);
+                playerSequence.Add("ice");
                 break;
             case "Water":
                 Debug.Log("Adding water to the coffee");
                 RemoveEverything();
                 transform.Find("AddWater").gameObject.SetActive(true);
-                sequence.Add(1);
+                playerSequence.Add("water");
                 break;
             case "Espresso":
                 Debug.Log("Adding espresso to the coffee");
                 RemoveEverything();
                 transform.Find("AddEspresso").gameObject.SetActive(true);
-                sequence.Add(2);
+                playerSequence.Add("espresso");
                 break;
             case "Milk":
                 Debug.Log("Adding milk to the coffee");
+                RemoveEverything();
+                transform.Find("AddMilk").gameObject.SetActive(true);
+                playerSequence.Add("milk");
+                break;
+            case "Foam":
+                Debug.Log("Adding foam to the coffee");
+                RemoveEverything();
+                transform.Find("AddFoam").gameObject.SetActive(true);
+                playerSequence.Add("foam");
                 break;
             case "Sugar":
                 Debug.Log("Adding sugar to the coffee");
+                RemoveEverything();
+                transform.Find("AddSugar").gameObject.SetActive(true);
+                playerSequence.Add("sugar");
                 break;
             default:
                 Debug.Log("No object selected");
