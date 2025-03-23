@@ -12,6 +12,7 @@ public class DataKeeper : MonoBehaviour
     public List<string> taskList;
     public int totalTask;
     public string currentScene;
+    public bool isTutorialCompleted;
     private void Awake()
     {
         if (Instance != null)
@@ -43,8 +44,8 @@ public class DataKeeper : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        currentScene = SceneManager.GetActiveScene().name;
-        RecordCurrentTask();
+        //currentScene = SceneManager.GetActiveScene().name;
+        //RecordCurrentTask();
     }
 
     // Update is called once per frame
@@ -59,7 +60,7 @@ public class DataKeeper : MonoBehaviour
         if (taskList.Count >= totalTask + 1 && currentScene == "Tutorial")
         {
             Debug.Log("Tutorial Completed");
-            // show button for final task
+            isTutorialCompleted = true;
         }
     }
 

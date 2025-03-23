@@ -12521,6 +12521,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guideArrowPrefeb: {fileID: 5288561933786394862, guid: b301ae4f84896384cbf61de2d9dcdab4, type: 3}
   gameButton: {fileID: 922344024}
+  listOfPositions:
+  - {x: -7.5, y: 3, z: 14}
+  - {x: 16, y: 3.3, z: 6.5}
+  listOfRotations: b4000000d7000000
 --- !u!1001 &1203911097
 PrefabInstance:
   m_ObjectHideFlags: 0
