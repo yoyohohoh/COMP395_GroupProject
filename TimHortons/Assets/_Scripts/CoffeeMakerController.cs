@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -65,7 +64,7 @@ public class CoffeeMakerController : MonoBehaviour
         if (CheckSteps())
         { 
             Debug.Log("Make coffee");
-            // load next scene
+            GameObject.Find("LevelController").GetComponent<LevelController>().Tutorial();
         }
         else
         {

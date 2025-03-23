@@ -12365,7 +12365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0907fbcc726a19c4cb834de65f0da898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guideArrowPrefeb: {fileID: 0}
+  guideArrowPrefeb: {fileID: 5288561933786394862, guid: b301ae4f84896384cbf61de2d9dcdab4, type: 3}
 --- !u!1001 &1203911097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13714,6 +13714,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5356612775072201572, guid: e72476fa8d7e0ce448789fcc8ebb2065, type: 3}
   m_PrefabInstance: {fileID: 1360900094}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1366083600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1366083602}
+  - component: {fileID: 1366083601}
+  m_Layer: 0
+  m_Name: DataKeeper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1366083601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366083600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 924baa95e05d6ac4b94159eabe2f4024, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalCustomerCount: 0
+  taskList: []
+  totalTask: 2
+--- !u!4 &1366083602
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366083600}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1370579206
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14285,7 +14332,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 118612, guid: affd85d75c3c8e54b802be2df6f1770f, type: 3}
       propertyPath: m_Name
-      value: CustomerNo
+      value: LongBlack Checkpoint
       objectReference: {fileID: 0}
     - target: {fileID: 404056, guid: affd85d75c3c8e54b802be2df6f1770f, type: 3}
       propertyPath: m_LocalScale.x
@@ -14395,7 +14442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22495188, guid: affd85d75c3c8e54b802be2df6f1770f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 21.31
+      value: 42.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17356,7 +17403,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 112984, guid: 29f49c4f87606ce47924a910b8793034, type: 3}
       propertyPath: m_Name
-      value: ServiceTime
+      value: CaffeLatte Checkpoint
       objectReference: {fileID: 0}
     - target: {fileID: 477304, guid: 29f49c4f87606ce47924a910b8793034, type: 3}
       propertyPath: m_LocalScale.x
@@ -19662,3 +19709,4 @@ SceneRoots:
   - {fileID: 816394832}
   - {fileID: 1115948746}
   - {fileID: 1203457968}
+  - {fileID: 1366083602}

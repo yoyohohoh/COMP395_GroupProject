@@ -30,9 +30,13 @@ public class LevelController : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
-
+    public void Tutorial()
+    {
+        SceneManager.LoadScene(1);
+    }
     public void LoadLevel(string levelName)
     {
         SceneManager.LoadScene(levelName);
     }
+
 }
