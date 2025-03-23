@@ -6782,7 +6782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4978200839083663530, guid: 7dd0ea8704bdd3942a35526975d567f8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: TimHortons
+      value: GameOver
       objectReference: {fileID: 0}
     - target: {fileID: 5405251673502187896, guid: 7dd0ea8704bdd3942a35526975d567f8, type: 3}
       propertyPath: m_SizeDelta.y
@@ -13906,6 +13906,7 @@ MonoBehaviour:
   taskList: []
   totalTask: 2
   currentScene: 
+  isTutorialCompleted: 0
 --- !u!4 &1366083602
 Transform:
   m_ObjectHideFlags: 0
