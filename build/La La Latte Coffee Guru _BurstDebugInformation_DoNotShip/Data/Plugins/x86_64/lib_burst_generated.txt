@@ -9,7 +9,7 @@ Library: C:\Users\hoyiu\Desktop\Yoyo\Canada\Centennial\6_Winter2025\COMP395_Sim\
 --float-precision=Standard
 --target-framework=NetFramework
 --float-mode=Fast
---linker-options=PdbAltPath="La La Latte: Coffee Guru _Data/Plugins/x86_64/lib_burst_generated.pdb"
+--linker-options=PdbAltPath="La La Latte Coffee Guru _Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=C:\Users\hoyiu\Desktop\Yoyo\Canada\Centennial\6_Winter2025\COMP395_Sim\Group Project\COMP395_GroupProject\TimHortons\Temp\Burst
 --key-folder=C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
@@ -29,7 +29,7 @@ Library: C:\Users\hoyiu\Desktop\Yoyo\Canada\Centennial\6_Winter2025\COMP395_Sim\
 --float-precision=Standard
 --target-framework=NetFramework
 --float-mode=Fast
---linker-options=PdbAltPath="La La Latte: Coffee Guru _Data/Plugins/x86_64/lib_burst_generated.pdb"
+--linker-options=PdbAltPath="La La Latte Coffee Guru _Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=C:\Users\hoyiu\Desktop\Yoyo\Canada\Centennial\6_Winter2025\COMP395_Sim\Group Project\COMP395_GroupProject\TimHortons\Temp\Burst
 --key-folder=C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
@@ -47,7 +47,7 @@ Library: C:\Users\hoyiu\Desktop\Yoyo\Canada\Centennial\6_Winter2025\COMP395_Sim\
 --dump=Function
 --float-precision=Standard
 --target-framework=NetFramework
---linker-options=PdbAltPath="La La Latte: Coffee Guru _Data/Plugins/x86_64/lib_burst_generated.pdb"
+--linker-options=PdbAltPath="La La Latte Coffee Guru _Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=C:\Users\hoyiu\Desktop\Yoyo\Canada\Centennial\6_Winter2025\COMP395_Sim\Group Project\COMP395_GroupProject\TimHortons\Temp\Burst
 --key-folder=C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
@@ -154,7 +154,7 @@ Library: C:\Users\hoyiu\Desktop\Yoyo\Canada\Centennial\6_Winter2025\COMP395_Sim\
 --dump=Function
 --float-precision=Standard
 --target-framework=NetFramework
---linker-options=PdbAltPath="La La Latte: Coffee Guru _Data/Plugins/x86_64/lib_burst_generated.pdb"
+--linker-options=PdbAltPath="La La Latte Coffee Guru _Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=C:\Users\hoyiu\Desktop\Yoyo\Canada\Centennial\6_Winter2025\COMP395_Sim\Group Project\COMP395_GroupProject\TimHortons\Temp\Burst
 --key-folder=C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport

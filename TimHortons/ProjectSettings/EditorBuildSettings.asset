@@ -18,8 +18,8 @@ EditorBuildSettings:
     path: Assets/Scenes/CaffeLatte.unity
     guid: 425b252055152014f9c3c4806bf3ccea
   - enabled: 1
-    path: Assets/Scenes/TimHortons.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/Level.unity
+    guid: 9eef1763947fe0f4fa1244769ae2bffa
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: a1b69dd5e55776d439c6a633671d800b
