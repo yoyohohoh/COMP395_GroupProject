@@ -33,6 +33,7 @@ public class ClickableObject : MonoBehaviour
             Transform hitObject = hit.transform;
             objectName = hitObject.name;
             
+            // tutorial
             GameObject coffeeMaker = GameObject.Find("CoffeeMaker");
             if (coffeeMaker != null)
             {
@@ -40,11 +41,24 @@ public class ClickableObject : MonoBehaviour
                 GameObject.Find(objectName).transform.Find("Juice")?.gameObject.SetActive(false);
             }
 
-            if(hitObject.CompareTag("AI"))
+            // level
+            if (hitObject.CompareTag("AI"))
             {
                 OrderController orderController = hitObject.GetComponent<OrderController>();
-                orderController.isOrderReceived = true;
+                orderController.isOrderReceived = GameObject.Find("OrderManager").GetComponent<OrderManager>().CheckCompletedCoffee(orderController.order);
             }
+            else if ((hitObject.CompareTag("Ingredient")))
+            {
+                GameObject orderManager = GameObject.Find("OrderManager");
+                if (orderManager != null)
+                {
+                    orderManager.GetComponent<OrderManager>().listOfIngredientsAdded.Add(objectName);
+                }
+            }
+
+            
+
+            
         }
     }
 }

@@ -76,7 +76,7 @@ public class OrderController : MonoBehaviour
         {
             if (!isOrderPlaced)
             {
-                DataKeeper.Instance.listOfOrders.Add(order);
+                GameObject.Find("OrderManager").GetComponent<OrderManager>().listOfOrders.Add(order);
             }
             isOrderPlaced = true;
         }

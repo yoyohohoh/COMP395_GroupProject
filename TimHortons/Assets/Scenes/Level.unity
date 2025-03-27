@@ -1275,6 +1275,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ice
       objectReference: {fileID: 0}
+    - target: {fileID: 6165301767511853815, guid: dfc5a8a18f1c9394cb80b4972fe0883e, type: 3}
+      propertyPath: m_TagString
+      value: Ingredient
+      objectReference: {fileID: 0}
     - target: {fileID: 6964923653088835868, guid: dfc5a8a18f1c9394cb80b4972fe0883e, type: 3}
       propertyPath: m_LocalScale.x
       value: 7
@@ -3629,6 +3633,10 @@ PrefabInstance:
     - target: {fileID: 8234080313139485165, guid: 249484e62e1fa4741a72c785ab55d68b, type: 3}
       propertyPath: m_Name
       value: Water
+      objectReference: {fileID: 0}
+    - target: {fileID: 8234080313139485165, guid: 249484e62e1fa4741a72c785ab55d68b, type: 3}
+      propertyPath: m_TagString
+      value: Ingredient
       objectReference: {fileID: 0}
     - target: {fileID: 9113743065384786623, guid: 249484e62e1fa4741a72c785ab55d68b, type: 3}
       propertyPath: m_IsActive
@@ -8539,6 +8547,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1324559935}
+  - component: {fileID: 1324559936}
   m_Layer: 0
   m_Name: Counter
   m_TagString: Untagged
@@ -8577,6 +8586,28 @@ Transform:
   - {fileID: 1809354363}
   m_Father: {fileID: 114888739}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &1324559936
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324559934}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1001 &1341208008
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8809,8 +8840,6 @@ MonoBehaviour:
   totalTask: 2
   currentScene: 
   isTutorialCompleted: 0
-  listOfOrders: []
-  listOfCompletedOrders: []
 --- !u!4 &1366083602
 Transform:
   m_ObjectHideFlags: 0
@@ -9022,6 +9051,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9073186655755578987, guid: 593224d4e12beb5459c508a256608bd9, type: 3}
   m_PrefabInstance: {fileID: 1401586135}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1402924077
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1402924079}
+  - component: {fileID: 1402924078}
+  m_Layer: 0
+  m_Name: OrderManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1402924078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402924077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dc2e579a6613b449bbdd55b3da280ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listOfOrders: []
+  listOfCompletedOrder: []
+  listOfCompletedCoffee: []
+  listOfIngredientsAdded: []
+--- !u!4 &1402924079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402924077}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1443262672
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9664,6 +9741,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Foam
       objectReference: {fileID: 0}
+    - target: {fileID: 2626644106445953798, guid: 21a10076d17e3db48b5548865f546545, type: 3}
+      propertyPath: m_TagString
+      value: Ingredient
+      objectReference: {fileID: 0}
     - target: {fileID: 5099218751313040785, guid: 21a10076d17e3db48b5548865f546545, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.01
@@ -9788,6 +9869,10 @@ PrefabInstance:
     - target: {fileID: 1517493673946906284, guid: 5b2be27dfb805c744855c0814ef60d31, type: 3}
       propertyPath: m_Name
       value: Milk
+      objectReference: {fileID: 0}
+    - target: {fileID: 1517493673946906284, guid: 5b2be27dfb805c744855c0814ef60d31, type: 3}
+      propertyPath: m_TagString
+      value: Ingredient
       objectReference: {fileID: 0}
     - target: {fileID: 4574818549328332971, guid: 5b2be27dfb805c744855c0814ef60d31, type: 3}
       propertyPath: m_LocalScale.x
@@ -11157,6 +11242,10 @@ PrefabInstance:
     - target: {fileID: 4015359166098501046, guid: 1b746dd74fac3b648aa748294273e25f, type: 3}
       propertyPath: m_Name
       value: Espresso
+      objectReference: {fileID: 0}
+    - target: {fileID: 4015359166098501046, guid: 1b746dd74fac3b648aa748294273e25f, type: 3}
+      propertyPath: m_TagString
+      value: Ingredient
       objectReference: {fileID: 0}
     - target: {fileID: 4248605172149914707, guid: 1b746dd74fac3b648aa748294273e25f, type: 3}
       propertyPath: m_IsActive
@@ -12900,4 +12989,5 @@ SceneRoots:
   - {fileID: 1366083602}
   - {fileID: 2006515352}
   - {fileID: 28758730}
+  - {fileID: 1402924079}
   - {fileID: 2145221518}

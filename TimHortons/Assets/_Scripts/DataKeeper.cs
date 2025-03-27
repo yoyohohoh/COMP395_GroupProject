@@ -14,8 +14,6 @@ public class DataKeeper : MonoBehaviour
     public string currentScene;
     public bool isTutorialCompleted;
 
-    public List<string> listOfOrders;
-    public List<string> listOfCompletedOrders;
     private void Awake()
     {
         if (Instance != null)
