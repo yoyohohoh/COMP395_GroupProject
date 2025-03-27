@@ -31,7 +31,7 @@ public class OrderController : MonoBehaviour
         isOrderReceived = false;
         waypoints = GameObject.Find("Waypoints").GetComponent<OrderWaypoints>()._waypoints;
         StartCoroutine(OrderMovement());
-        if(isOrderReceived)
+        if (isOrderReceived)
         {
             if (animator != null)
             {
@@ -74,7 +74,7 @@ public class OrderController : MonoBehaviour
 
         if (currentIndex == 2)
         {
-            if(!isOrderPlaced)
+            if (!isOrderPlaced)
             {
                 DataKeeper.Instance.listOfOrders.Add(order);
             }
@@ -92,9 +92,14 @@ public class OrderController : MonoBehaviour
         while (currentIndex < waypoints.Length)
         {
             Transform targetWaypoint = waypoints[currentIndex];
+            if (currentIndex == 2)
+            {
+                this.transform.rotation = Quaternion.Euler(0, 90, 0);
+            }
 
             if (currentIndex == 3 && !isOrderReceived)
             {
+                this.transform.rotation = Quaternion.Euler(0, 0, 0);
                 Debug.Log("Waiting to receive Order");
                 if (animator != null)
                 {
