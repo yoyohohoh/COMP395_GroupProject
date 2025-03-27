@@ -63,7 +63,7 @@ public class OrderController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //MoveAI();
+        MoveAI();
 
         if (isOrderReceived)
         {
@@ -97,15 +97,18 @@ public class OrderController : MonoBehaviour
                 this.transform.rotation = Quaternion.Euler(0, 90, 0);
             }
 
-            if (currentIndex == 3 && !isOrderReceived)
+            if (currentIndex == 3)
             {
-                this.transform.rotation = Quaternion.Euler(0, 0, 0);
-                Debug.Log("Waiting to receive Order");
-                if (animator != null)
+                if (!isOrderReceived)
                 {
-                    animator.SetBool("isIdle", true);
+                    this.transform.rotation = Quaternion.Euler(0, 0, 0);
+                    if (animator != null)
+                    {
+                        animator.SetBool("isIdle", true);
+                    }
+                    yield return new WaitUntil(() => isOrderReceived);
                 }
-                yield return new WaitUntil(() => isOrderReceived);
+                
             }
 
             // Move towards the target waypoint
@@ -130,10 +133,6 @@ public class OrderController : MonoBehaviour
 
     private void MoveAI()
     {
-        // Example movement (you can replace it with actual movement logic)
-        Vector3 moveDirection = transform.forward;
-        rb.linearVelocity = moveDirection * moveSpeed;
-
         // Check for nearby AIs within the detection radius
         Collider[] nearbyAIs = Physics.OverlapSphere(transform.position, detectionRadius);
 
@@ -153,6 +152,17 @@ public class OrderController : MonoBehaviour
                     rb.MovePosition(alignedPosition);
                 }
             }
+        }
+
+        if (isOrderReceived)
+        {
+            Debug.Log("Order received");
+            Vector3 targetDirection = waypoints[3].position - transform.position;
+            Debug.Log("targetDirection" + targetDirection);
+            Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+            Debug.Log("targetRotation" + targetRotation);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 2f);
+            Debug.Log("transform.rotation" + transform.rotation);
         }
     }
 
