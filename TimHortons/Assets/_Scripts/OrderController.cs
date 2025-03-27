@@ -8,6 +8,12 @@ public class OrderController : MonoBehaviour
     public Transform[] waypoints;
     public int currentIndex = 0;
     public float moveSpeed = 1f;
+    public Animator animator;
+
+    [Header("Detection")]
+    public float detectionRadius = 5f; // Distance at which AIs detect each other
+    public float alignmentDistance = 1f; // Distance at which they align
+    private Rigidbody rb;
 
     [Header("Order Information")]
     public string order;
@@ -16,6 +22,8 @@ public class OrderController : MonoBehaviour
     GameObject orderTag;
     public GameObject latte;
     public GameObject black;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,9 +31,16 @@ public class OrderController : MonoBehaviour
         isOrderReceived = false;
         waypoints = GameObject.Find("Waypoints").GetComponent<OrderWaypoints>()._waypoints;
         StartCoroutine(OrderMovement());
+        if(isOrderReceived)
+        {
+            if (animator != null)
+            {
+                animator.SetBool("isIdle", false);
+            }
+        }
+        rb = GetComponent<Rigidbody>();
 
         orderTag = this.GetComponentsInChildren<Transform>()[1].gameObject;
-
         order = GetRandomOrder();
         orderTag.SetActive(true);
         if (order == "Caffee Latte")
@@ -48,14 +63,15 @@ public class OrderController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // move along waypoints
+        //MoveAI();
 
-        // when reach waypoints[1] isOrderPlaced = true
-        // go to w2
-        // waiting for order making (game part)
-        // game done, isOrderReceived = true 
-        // go to w3
+        if (isOrderReceived)
+        {
+            animator.SetBool("isIdle", false);
+        }
+
         orderTag.SetActive(isOrderPlaced);
+
         if (currentIndex == 2)
         {
             if(!isOrderPlaced)
@@ -64,6 +80,7 @@ public class OrderController : MonoBehaviour
             }
             isOrderPlaced = true;
         }
+
         if (currentIndex >= waypoints.Length)
         {
             Destroy(gameObject);
@@ -75,6 +92,16 @@ public class OrderController : MonoBehaviour
         while (currentIndex < waypoints.Length)
         {
             Transform targetWaypoint = waypoints[currentIndex];
+
+            if (currentIndex == 3 && !isOrderReceived)
+            {
+                Debug.Log("Waiting to receive Order");
+                if (animator != null)
+                {
+                    animator.SetBool("isIdle", true);
+                }
+                yield return new WaitUntil(() => isOrderReceived);
+            }
 
             // Move towards the target waypoint
             while (Vector3.Distance(transform.position, targetWaypoint.position) > 0.1f)
@@ -94,6 +121,34 @@ public class OrderController : MonoBehaviour
         int randomNumber = random.Next(0, 2);
 
         return randomNumber == 0 ? "Caffee Latte" : "Long Black";
+    }
+
+    private void MoveAI()
+    {
+        // Example movement (you can replace it with actual movement logic)
+        Vector3 moveDirection = transform.forward;
+        rb.linearVelocity = moveDirection * moveSpeed;
+
+        // Check for nearby AIs within the detection radius
+        Collider[] nearbyAIs = Physics.OverlapSphere(transform.position, detectionRadius);
+
+        foreach (var ai in nearbyAIs)
+        {
+            if (ai.CompareTag("AI") && ai.gameObject != gameObject)
+            {
+                float distanceToAI = Vector3.Distance(transform.position, ai.transform.position);
+
+                if (distanceToAI < alignmentDistance)
+                {
+                    // Align the AI (move apart)
+                    Vector3 directionAwayFromAI = transform.position - ai.transform.position;
+                    Vector3 alignedPosition = transform.position + directionAwayFromAI.normalized * alignmentDistance;
+
+                    // Move the AI to the new aligned position
+                    rb.MovePosition(alignedPosition);
+                }
+            }
+        }
     }
 
 }

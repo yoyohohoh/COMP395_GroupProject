@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DataTag
   - Juice
+  - AI
   layers:
   - Default
   - TransparentFX
