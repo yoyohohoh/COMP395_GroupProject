@@ -30,7 +30,7 @@ public class OrderGenerator : MonoBehaviour
             Instantiate(customerPrefab, customerSpawnPlace.position, Quaternion.identity);
             orderCount++;
             interArrivalTime = -Mathf.Log(1 - UnityEngine.Random.value) / simulationParameters.lambda;
-            yield return new WaitForSeconds(interArrivalTime * simulationParameters.TimeScale);
+            yield return new WaitForSeconds((interArrivalTime * simulationParameters.TimeScale) * 3);
         }
     }
 

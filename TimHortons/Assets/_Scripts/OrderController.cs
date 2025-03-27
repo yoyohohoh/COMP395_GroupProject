@@ -1,13 +1,21 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class OrderController : MonoBehaviour
 {
+    [Header("Movement")]
     public Transform[] waypoints;
     public int currentIndex = 0;
     public float moveSpeed = 1f;
+
+    [Header("Order Information")]
+    public string order;
     public bool isOrderPlaced;
     public bool isOrderReceived;
+    GameObject orderTag;
+    public GameObject latte;
+    public GameObject black;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,6 +23,26 @@ public class OrderController : MonoBehaviour
         isOrderReceived = false;
         waypoints = GameObject.Find("Waypoints").GetComponent<OrderWaypoints>()._waypoints;
         StartCoroutine(OrderMovement());
+
+        orderTag = this.GetComponentsInChildren<Transform>()[1].gameObject;
+
+        order = GetRandomOrder();
+        orderTag.SetActive(true);
+        if (order == "Caffee Latte")
+        {
+            latte.SetActive(true);
+            black.SetActive(false);
+        }
+        else if (order == "Long Black")
+        {
+            latte.SetActive(false);
+            black.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("Order Error");
+        }
+        orderTag.SetActive(false);
     }
 
     // Update is called once per frame
@@ -27,8 +55,16 @@ public class OrderController : MonoBehaviour
         // waiting for order making (game part)
         // game done, isOrderReceived = true 
         // go to w3
-
-        if(currentIndex >= waypoints.Length)
+        orderTag.SetActive(isOrderPlaced);
+        if (currentIndex == 2)
+        {
+            if(!isOrderPlaced)
+            {
+                DataKeeper.Instance.listOfOrders.Add(order);
+            }
+            isOrderPlaced = true;
+        }
+        if (currentIndex >= waypoints.Length)
         {
             Destroy(gameObject);
         }
@@ -50,6 +86,14 @@ public class OrderController : MonoBehaviour
             currentIndex++;
             yield return new WaitForSeconds(0.5f);
         }
+    }
+
+    private string GetRandomOrder()
+    {
+        System.Random random = new System.Random();
+        int randomNumber = random.Next(0, 2);
+
+        return randomNumber == 0 ? "Caffee Latte" : "Long Black";
     }
 
 }

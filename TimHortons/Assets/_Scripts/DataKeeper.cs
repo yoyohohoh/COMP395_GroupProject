@@ -13,6 +13,8 @@ public class DataKeeper : MonoBehaviour
     public int totalTask;
     public string currentScene;
     public bool isTutorialCompleted;
+
+    public List<string> listOfOrders;
     private void Awake()
     {
         if (Instance != null)
