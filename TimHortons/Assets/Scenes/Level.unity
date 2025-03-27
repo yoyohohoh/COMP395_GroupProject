@@ -260,6 +260,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 28758730}
+  - component: {fileID: 28758731}
   m_Layer: 0
   m_Name: Waypoints
   m_TagString: Untagged
@@ -282,11 +283,27 @@ Transform:
   m_Children:
   - {fileID: 1383795452}
   - {fileID: 2081912204}
-  - {fileID: 1266730665}
   - {fileID: 369522699}
   - {fileID: 190096081}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &28758731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28758729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a0491fb6f1cdeb4daa267dfa227e5e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _waypoints:
+  - {fileID: 1383795452}
+  - {fileID: 2081912204}
+  - {fileID: 369522699}
+  - {fileID: 190096081}
 --- !u!1001 &30569387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1285,7 +1302,7 @@ Transform:
   m_GameObject: {fileID: 190096080}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22, y: 0, z: -19}
+  m_LocalPosition: {x: -23, y: 0, z: -22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2593,7 +2610,7 @@ GameObject:
   m_Component:
   - component: {fileID: 369522699}
   m_Layer: 0
-  m_Name: Waypoint (3)
+  m_Name: PlayerPoint
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -7884,37 +7901,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 477049628}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1266730664
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1266730665}
-  m_Layer: 0
-  m_Name: Waypoint (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1266730665
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1266730664}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 28758730}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1275857808
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7926,6 +7912,10 @@ PrefabInstance:
     - target: {fileID: 1253129871656352669, guid: 256b29fbb412d744e8c118b8a7da3b38, type: 3}
       propertyPath: m_Name
       value: Cafe
+      objectReference: {fileID: 0}
+    - target: {fileID: 3572283857090259766, guid: 256b29fbb412d744e8c118b8a7da3b38, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8185218071934380454, guid: 256b29fbb412d744e8c118b8a7da3b38, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8833,7 +8823,7 @@ Transform:
   m_GameObject: {fileID: 1383795451}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19, y: 0, z: -22}
+  m_LocalPosition: {x: -21, y: 0, z: -23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11768,7 +11758,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2081912204}
   m_Layer: 0
-  m_Name: Waypoint (1)
+  m_Name: CashierPoint
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
