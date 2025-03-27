@@ -156,13 +156,9 @@ public class OrderController : MonoBehaviour
 
         if (isOrderReceived)
         {
-            Debug.Log("Order received");
             Vector3 targetDirection = waypoints[3].position - transform.position;
-            Debug.Log("targetDirection" + targetDirection);
             Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
-            Debug.Log("targetRotation" + targetRotation);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 2f);
-            Debug.Log("transform.rotation" + transform.rotation);
         }
     }
 

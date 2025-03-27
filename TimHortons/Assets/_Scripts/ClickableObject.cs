@@ -30,9 +30,20 @@ public class ClickableObject : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
             Debug.Log("Clicked on: " + hit.transform.name);
-            objectName = hit.transform.name;
+            Transform hitObject = hit.transform;
+            objectName = hitObject.name;
             GameObject.Find(objectName).transform.Find("Juice")?.gameObject.SetActive(false);
-            GameObject.Find("CoffeeMaker").GetComponent<CoffeeMakerController>().AddItems(objectName);
+            GameObject coffeeMaker = GameObject.Find("CoffeeMaker");
+            if (coffeeMaker != null)
+            {
+                coffeeMaker.GetComponent<CoffeeMakerController>().AddItems(objectName);
+            }
+
+            if(hitObject.CompareTag("AI"))
+            {
+                OrderController orderController = hitObject.GetComponent<OrderController>();
+                orderController.isOrderReceived = true;
+            }
         }
     }
 }
