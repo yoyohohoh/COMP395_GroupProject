@@ -32,11 +32,12 @@ public class ClickableObject : MonoBehaviour
             Debug.Log("Clicked on: " + hit.transform.name);
             Transform hitObject = hit.transform;
             objectName = hitObject.name;
-            GameObject.Find(objectName).transform.Find("Juice")?.gameObject.SetActive(false);
+            
             GameObject coffeeMaker = GameObject.Find("CoffeeMaker");
             if (coffeeMaker != null)
             {
                 coffeeMaker.GetComponent<CoffeeMakerController>().AddItems(objectName);
+                GameObject.Find(objectName).transform.Find("Juice")?.gameObject.SetActive(false);
             }
 
             if(hitObject.CompareTag("AI"))

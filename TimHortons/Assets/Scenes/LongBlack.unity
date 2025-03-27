@@ -1202,10 +1202,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2229200290510877254, guid: 249484e62e1fa4741a72c785ab55d68b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.01
-      objectReference: {fileID: 0}
     - target: {fileID: 8234080313139485165, guid: 249484e62e1fa4741a72c785ab55d68b, type: 3}
       propertyPath: m_Name
       value: Water
