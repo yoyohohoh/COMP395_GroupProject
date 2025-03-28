@@ -7,12 +7,12 @@ public class OrderController : MonoBehaviour
     [Header("Movement")]
     public Transform[] waypoints;
     public int currentIndex = 0;
-    public float moveSpeed = 1f;
+    public float moveSpeed = 4f;
     public Animator animator;
 
     [Header("Detection")]
     public float detectionRadius = 5f; // Distance at which AIs detect each other
-    public float alignmentDistance = 3f; // Distance at which they align
+    public float alignmentDistance = 2f; // Distance at which they align
     private Rigidbody rb;
 
     [Header("Order Information")]
@@ -143,7 +143,7 @@ public class OrderController : MonoBehaviour
             }
 
             // Move towards the target waypoint
-            while (Vector3.Distance(transform.position, targetWaypoint.position) > 0.1f)
+            while (Vector3.Distance(transform.position, targetWaypoint.position) > 0.5f)
             {
                 transform.position = Vector3.MoveTowards(transform.position, targetWaypoint.position, moveSpeed * Time.deltaTime);
                 if (animator != null)
@@ -175,22 +175,24 @@ public class OrderController : MonoBehaviour
 
         foreach (var ai in nearbyAIs)
         {
-            if ((ai.CompareTag("AI") && ai.gameObject != gameObject) || (ai.CompareTag("Table") && ai.gameObject != gameObject))
+            if ((ai.CompareTag("AI") && ai.gameObject != gameObject))
             {
                 float distanceToAI = Vector3.Distance(transform.position, ai.transform.position);
 
                 if (distanceToAI < alignmentDistance)
                 {
                     // Align the AI (move apart)
+                    //Vector3 directionAwayFromAI = transform.position - ai.transform.position;
                     Vector3 directionAwayFromAI = transform.position - ai.transform.position;
                     Vector3 alignedPosition = transform.position + directionAwayFromAI.normalized * alignmentDistance;
 
                     // Move the AI to the new aligned position
-                    rb.MovePosition(alignedPosition);
+                    transform.position = alignedPosition;
                 }
             }
         }
 
     }
+
 
 }
