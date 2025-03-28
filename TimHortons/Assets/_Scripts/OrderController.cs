@@ -43,7 +43,7 @@ public class OrderController : MonoBehaviour
         orderTag = this.GetComponentsInChildren<Transform>()[1].gameObject;
         order = GetRandomOrder();
         orderTag.SetActive(true);
-        if (order == "Caffee Latte")
+        if (order == "Caffe Latte")
         {
             latte.SetActive(true);
             black.SetActive(false);
@@ -128,7 +128,7 @@ public class OrderController : MonoBehaviour
         System.Random random = new System.Random();
         int randomNumber = random.Next(0, 2);
 
-        return randomNumber == 0 ? "Caffee Latte" : "Long Black";
+        return randomNumber == 0 ? "Caffe Latte" : "Long Black";
     }
 
     private void MoveAI()
