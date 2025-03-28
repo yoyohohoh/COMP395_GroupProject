@@ -52,7 +52,7 @@ public class ClickableObject : MonoBehaviour
                 GameObject orderManager = GameObject.Find("OrderManager");
                 if (orderManager != null)
                 {
-                    orderManager.GetComponent<OrderManager>().listOfIngredientsAdded.Add(objectName);
+                    orderManager.GetComponent<OrderManager>().OnIngredientAdded(objectName);
                 }
             }
 
