@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class OrderGenerator : MonoBehaviour
 {
+    public GameObject[] customerPrefabs;
     public GameObject customerPrefab;
     public Transform customerSpawnPlace;
     public bool generateOrders;
@@ -20,6 +21,7 @@ public class OrderGenerator : MonoBehaviour
         orderCount = 0;
         startTime = simulationParameters.StartTime;
         endTime = simulationParameters.EndTime;
+
         StartCoroutine(GenerateArrivals());
     }
 
@@ -27,6 +29,8 @@ public class OrderGenerator : MonoBehaviour
     {
         while (generateOrders)
         {
+            int randomInt = UnityEngine.Random.Range(0, customerPrefabs.Length);
+            customerPrefab = customerPrefabs[randomInt];
             Instantiate(customerPrefab, customerSpawnPlace.position, Quaternion.identity);
             orderCount++;
             interArrivalTime = -Mathf.Log(1 - UnityEngine.Random.value) / simulationParameters.lambda;

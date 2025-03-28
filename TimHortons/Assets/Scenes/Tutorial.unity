@@ -967,8 +967,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 85568524}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.082480535, y: 0.0000000073993256, z: -6.123869e-10, w: 0.9965927}
-  m_LocalPosition: {x: 1.784213, y: 2, z: -21}
+  m_LocalRotation: {x: 0.08248052, y: -0.000000014850387, z: 0.0000000012290554, w: 0.9965927}
+  m_LocalPosition: {x: 1.78, y: 2, z: -18.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1080,7 +1080,7 @@ Transform:
   m_GameObject: {fileID: 91572809}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 1.784213, y: 0, z: -15}
+  m_LocalPosition: {x: 1.78, y: 0, z: -12.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3351,8 +3351,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.10251722, y: -0.00000009437348, z: 0.000000009726151, w: 0.99473125}
-  m_LocalPosition: {x: 1.784213, y: 2.25, z: -21}
+  m_LocalRotation: {x: 0.10251727, y: -9.4652875e-17, z: 9.754951e-18, w: 0.99473125}
+  m_LocalPosition: {x: 1.78, y: 2.25, z: -18.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6666,7 +6666,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4135279688266220642, guid: 7dd0ea8704bdd3942a35526975d567f8, type: 3}
       propertyPath: m_Text
-      value: Coffee Guru
+      value: Off Work
       objectReference: {fileID: 0}
     - target: {fileID: 4135279688266220642, guid: 7dd0ea8704bdd3942a35526975d567f8, type: 3}
       propertyPath: m_FontData.m_Font
@@ -6792,13 +6792,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -130
       objectReference: {fileID: 0}
+    - target: {fileID: 5405251673502187896, guid: 7dd0ea8704bdd3942a35526975d567f8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -65
+      objectReference: {fileID: 0}
     - target: {fileID: 6191058525600728118, guid: 7dd0ea8704bdd3942a35526975d567f8, type: 3}
       propertyPath: m_Name
       value: MakeCoffeeButton
       objectReference: {fileID: 0}
     - target: {fileID: 6191058525600728118, guid: 7dd0ea8704bdd3942a35526975d567f8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8832,8 +8836,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 816394826}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.10251721, y: -0.000000094373476, z: 0.0000000097261506, w: 0.99473125}
-  m_LocalPosition: {x: 1.784213, y: 2.25, z: -21}
+  m_LocalRotation: {x: 0.10251726, y: -9.493578e-17, z: 1.2499938e-17, w: 0.99473125}
+  m_LocalPosition: {x: 1.78, y: 2.25, z: -18.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13907,6 +13911,8 @@ MonoBehaviour:
   totalTask: 2
   currentScene: 
   isTutorialCompleted: 0
+  targetSale: 0
+  todaySale: 0
 --- !u!4 &1366083602
 Transform:
   m_ObjectHideFlags: 0

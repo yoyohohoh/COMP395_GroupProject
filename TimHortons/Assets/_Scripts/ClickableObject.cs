@@ -55,10 +55,19 @@ public class ClickableObject : MonoBehaviour
                     orderManager.GetComponent<OrderManager>().OnIngredientAdded(objectName);
                 }
             }
+            else if ((hitObject.CompareTag("Clear")))
+            {
+                GameObject orderManager = GameObject.Find("OrderManager");
+                if (orderManager != null)
+                {
+                    orderManager.GetComponent<OrderManager>().ClearIngredients();
+                }
+            }
 
-            
 
-            
+
+
+
         }
     }
 }

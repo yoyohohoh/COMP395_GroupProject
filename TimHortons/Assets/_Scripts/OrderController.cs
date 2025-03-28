@@ -80,7 +80,7 @@ public class OrderController : MonoBehaviour
                 animator.SetBool("isIdle", false);
             }
 
-            orderTag.SetActive(isOrderPlaced);
+            orderTag.SetActive(isOrderPlaced && !isOrderReceived);
 
             if (currentIndex == 2)
             {
@@ -90,7 +90,7 @@ public class OrderController : MonoBehaviour
                 }
                 isOrderPlaced = true;
             }
-
+           
             if (currentIndex == 3 && !isOrderReceived)
             {
                 this.transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -107,7 +107,6 @@ public class OrderController : MonoBehaviour
             // when this transform close by waypoiint 3
             if (Vector3.Distance(transform.position, waypoints[3].transform.position) < 1f)
             {
-                Debug.Log("Close to waypoint3");
                 if (animator != null)
                 {
                     animator.SetBool("isIdle", true);

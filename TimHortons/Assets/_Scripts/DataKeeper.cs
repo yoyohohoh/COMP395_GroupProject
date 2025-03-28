@@ -14,6 +14,9 @@ public class DataKeeper : MonoBehaviour
     public string currentScene;
     public bool isTutorialCompleted;
 
+    public float targetSale;
+    public float todaySale;
+
     private void Awake()
     {
         if (Instance != null)

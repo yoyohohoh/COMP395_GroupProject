@@ -19,7 +19,8 @@ public class OrderManager : MonoBehaviour
     public List<string> listOfCompletedCoffee;
     public List<string> listOfIngredientsAdded;
     public Dictionary<string, string[]> recipes = new Dictionary<string, string[]>();
-
+    public float totalSale;
+    public TextMeshPro totalSaleTxt;
     void Start()
     {
         recipes["Long Black"] = new string[] { "Ice", "Water", "Espresso" };
@@ -32,7 +33,24 @@ public class OrderManager : MonoBehaviour
     {
         CoffeeLabel("Caffe Latte", latte, latteTxt);
         CoffeeLabel("Long Black", longblack, longblackTxt);
+        totalSale = CalculateSale("Long Black") + CalculateSale("Caffe Latte");
+        DataKeeper.Instance.todaySale = totalSale;
+        totalSaleTxt.text = "$" + totalSale.ToString();
     }
+
+    float CalculateSale(string coffeeName)
+    {
+        switch (coffeeName)
+        {
+            case "Long Black":
+                return listOfCompletedOrder.Count(coffee => coffee == coffeeName) * 2.99f;
+            case "Caffe Latte":
+                return listOfCompletedOrder.Count(coffee => coffee == coffeeName) * 3.39f;
+            default:
+                return 0;
+        }
+    }
+
     public void OnIngredientAdded(string ingredient)
     {
         listOfIngredientsAdded.Add(ingredient);
@@ -43,7 +61,7 @@ public class OrderManager : MonoBehaviour
     {
         ingredientsAddedTxt.text = string.Join(" + ", listOfIngredientsAdded);
         yield return new WaitForSeconds(delay);
-        
+
         if (listOfIngredientsAdded.Count == 3)
         {
             CheckIngredients(listOfIngredientsAdded.ToArray());
@@ -62,7 +80,11 @@ public class OrderManager : MonoBehaviour
             label.GetComponent<TextMeshPro>().text = "";
         }
     }
-
+    public void ClearIngredients()
+    {
+        listOfIngredientsAdded.Clear();
+        ingredientsAddedTxt.text = "";
+    }
     public void CheckIngredients(string[] ingredients)
     {
         foreach (var recipe in recipes)
@@ -70,11 +92,10 @@ public class OrderManager : MonoBehaviour
             if (recipe.Value.SequenceEqual(ingredients))
             {
                 listOfCompletedCoffee.Add(recipe.Key);
-                listOfIngredientsAdded.Clear();
-                ingredientsAddedTxt.text = "";
+                ClearIngredients();
                 coffeeMade.SetActive(true);
                 coffeeMade.GetComponentInChildren<TextMeshProUGUI>().text = recipe.Key + " !";
-                Invoke("CloseCoffeeMade", 1f);
+                Invoke("CloseCoffeeMade", 0.5f);
                 return;
             }
         }

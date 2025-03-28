@@ -9,6 +9,7 @@ TagManager:
   - AI
   - Ingredient
   - Table
+  - Clear
   layers:
   - Default
   - TransparentFX
