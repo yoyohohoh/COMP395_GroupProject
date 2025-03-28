@@ -12,7 +12,7 @@ public class OrderController : MonoBehaviour
 
     [Header("Detection")]
     public float detectionRadius = 5f; // Distance at which AIs detect each other
-    public float alignmentDistance = 1f; // Distance at which they align
+    public float alignmentDistance = 3f; // Distance at which they align
     private Rigidbody rb;
 
     [Header("Order Information")]
@@ -23,21 +23,25 @@ public class OrderController : MonoBehaviour
     public GameObject latte;
     public GameObject black;
 
+    private void Awake()
+    {
+        OrderWaypoints orderWaypoints = GameObject.Find("Waypoints").GetComponent<OrderWaypoints>();
+
+        waypoints = new Transform[orderWaypoints._waypoints.Length];
+        orderWaypoints._waypoints.CopyTo(waypoints, 0);
+
+        int randomInt = Random.Range(0, orderWaypoints._tables.Length);
+        waypoints[3] = orderWaypoints._tables[randomInt];
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         isOrderPlaced = false;
         isOrderReceived = false;
-        waypoints = GameObject.Find("Waypoints").GetComponent<OrderWaypoints>()._waypoints;
+
         StartCoroutine(OrderMovement());
-        if (isOrderReceived)
-        {
-            if (animator != null)
-            {
-                animator.SetBool("isIdle", false);
-            }
-        }
+
         rb = GetComponent<Rigidbody>();
 
         orderTag = this.GetComponentsInChildren<Transform>()[1].gameObject;
@@ -63,27 +67,53 @@ public class OrderController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoveAI();
-
-        if (isOrderReceived)
-        {
-            animator.SetBool("isIdle", false);
-        }
-
-        orderTag.SetActive(isOrderPlaced);
-
-        if (currentIndex == 2)
-        {
-            if (!isOrderPlaced)
-            {
-                GameObject.Find("OrderManager").GetComponent<OrderManager>().listOfOrders.Add(order);
-            }
-            isOrderPlaced = true;
-        }
-
         if (currentIndex >= waypoints.Length)
         {
             Destroy(gameObject);
+        }
+        else
+        {
+            MoveAI();
+
+            if (isOrderReceived)
+            {
+                animator.SetBool("isIdle", false);
+            }
+
+            orderTag.SetActive(isOrderPlaced);
+
+            if (currentIndex == 2)
+            {
+                if (!isOrderPlaced)
+                {
+                    GameObject.Find("OrderManager").GetComponent<OrderManager>().listOfOrders.Add(order);
+                }
+                isOrderPlaced = true;
+            }
+
+            if (currentIndex == 3 && !isOrderReceived)
+            {
+                this.transform.rotation = Quaternion.Euler(0, 0, 0);
+
+            }
+            else
+            {
+                Vector3 targetDirection = waypoints[currentIndex].position - transform.position;
+                Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 2f);
+            }
+
+            // If waiting at waypoint 4, set Idle animation
+            // when this transform close by waypoiint 3
+            if (Vector3.Distance(transform.position, waypoints[3].transform.position) < 1f)
+            {
+                Debug.Log("Close to waypoint3");
+                if (animator != null)
+                {
+                    animator.SetBool("isIdle", true);
+                }
+            }
+
         }
     }
 
@@ -92,36 +122,43 @@ public class OrderController : MonoBehaviour
         while (currentIndex < waypoints.Length)
         {
             Transform targetWaypoint = waypoints[currentIndex];
-            if (currentIndex == 2)
-            {
-                this.transform.rotation = Quaternion.Euler(0, 90, 0);
-            }
-
+            // When reaching waypoint 3, wait for order to be received
             if (currentIndex == 3)
             {
                 if (!isOrderReceived)
                 {
-                    this.transform.rotation = Quaternion.Euler(0, 0, 0);
                     if (animator != null)
                     {
                         animator.SetBool("isIdle", true);
                     }
+
                     yield return new WaitUntil(() => isOrderReceived);
                 }
-                
+            }
+            
+            if (currentIndex == 4)
+            {
+                yield return new WaitForSeconds(Random.Range(0.5f, 10.0f));
+
             }
 
             // Move towards the target waypoint
             while (Vector3.Distance(transform.position, targetWaypoint.position) > 0.1f)
             {
                 transform.position = Vector3.MoveTowards(transform.position, targetWaypoint.position, moveSpeed * Time.deltaTime);
+                if (animator != null)
+                {
+                    animator.SetBool("isIdle", false);
+                }
                 yield return null;
             }
 
             currentIndex++;
+
             yield return new WaitForSeconds(0.5f);
         }
     }
+
 
     private string GetRandomOrder()
     {
@@ -138,7 +175,7 @@ public class OrderController : MonoBehaviour
 
         foreach (var ai in nearbyAIs)
         {
-            if (ai.CompareTag("AI") && ai.gameObject != gameObject)
+            if ((ai.CompareTag("AI") && ai.gameObject != gameObject) || (ai.CompareTag("Table") && ai.gameObject != gameObject))
             {
                 float distanceToAI = Vector3.Distance(transform.position, ai.transform.position);
 
@@ -154,12 +191,6 @@ public class OrderController : MonoBehaviour
             }
         }
 
-        if (isOrderReceived)
-        {
-            Vector3 targetDirection = waypoints[3].position - transform.position;
-            Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 2f);
-        }
     }
 
 }

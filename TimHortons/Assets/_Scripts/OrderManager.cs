@@ -7,7 +7,7 @@ using Unity.VisualScripting;
 
 public class OrderManager : MonoBehaviour
 {
-    public TextMeshProUGUI coffeeMadeTxt;
+    public TextMeshProUGUI ingredientsAddedTxt;
     public GameObject latte;
     public GameObject longblack;
     public TextMeshPro latteTxt;
@@ -31,7 +31,7 @@ public class OrderManager : MonoBehaviour
             CheckIngredients(listOfIngredientsAdded.ToArray());
         }
 
-        coffeeMadeTxt.text = "Ready to Serve:\n" + string.Join("\n", listOfCompletedCoffee);
+        ingredientsAddedTxt.text = "Making Coffee\n" + "----------\n" + string.Join("\n", listOfIngredientsAdded);
 
         CoffeeLabel("Caffe Latte", latte, latteTxt);
         CoffeeLabel("Long Black", longblack, longblackTxt);

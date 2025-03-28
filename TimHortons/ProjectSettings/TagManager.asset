@@ -8,6 +8,7 @@ TagManager:
   - Juice
   - AI
   - Ingredient
+  - Table
   layers:
   - Default
   - TransparentFX
