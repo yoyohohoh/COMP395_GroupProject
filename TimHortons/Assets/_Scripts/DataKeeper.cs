@@ -65,7 +65,7 @@ public class DataKeeper : MonoBehaviour
             GameObject.Find("PlayerLevel").GetComponentInChildren<Text>().text = "You are promoted to " + playerLevel + " !";
         }
 
-        if (taskList.Count >= totalTask + 1 && currentScene == "Tutorial")
+        if (taskList.Contains("LongBlack") && taskList.Contains("CaffeLatte"))
         {
             Debug.Log("Tutorial Completed");
             isTutorialCompleted = true;

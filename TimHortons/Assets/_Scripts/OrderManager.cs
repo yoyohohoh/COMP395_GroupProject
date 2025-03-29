@@ -46,7 +46,7 @@ public class OrderManager : MonoBehaviour
         switch (sales)
         {
             case >= 200:
-                playerLevel = "Café Manager";
+                playerLevel = "Cafe Manager";
                 break;
             case >= 180 and < 200:
                 playerLevel = "Best Barista";

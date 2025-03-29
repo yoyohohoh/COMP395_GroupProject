@@ -6814,7 +6814,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6191058525600728118, guid: 7dd0ea8704bdd3942a35526975d567f8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13935,6 +13935,7 @@ MonoBehaviour:
   isTutorialCompleted: 0
   targetSale: 0
   todaySale: 0
+  playerLevel: 
 --- !u!4 &1366083602
 Transform:
   m_ObjectHideFlags: 0
