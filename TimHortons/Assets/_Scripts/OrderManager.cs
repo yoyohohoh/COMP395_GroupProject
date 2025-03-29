@@ -95,7 +95,7 @@ public class OrderManager : MonoBehaviour
                 ClearIngredients();
                 coffeeMade.SetActive(true);
                 coffeeMade.GetComponentInChildren<TextMeshProUGUI>().text = recipe.Key + " !";
-                Invoke("CloseCoffeeMade", 0.5f);
+                Invoke("CloseCoffeeMade", 0.3f);
                 return;
             }
         }
@@ -114,6 +114,22 @@ public class OrderManager : MonoBehaviour
         {
             if (completedOrder == orderReceived)
             {
+                // play sound
+                GameObject audioObject = GameObject.Find("Audio Source");
+                if (audioObject)
+                {
+                    AudioSource audioSource = audioObject.AddComponent<AudioSource>();
+                    AudioClip clip = Resources.Load<AudioClip>("BGM/cash-register");
+                    Debug.Log(clip);
+                    if (clip)
+                    {
+                        audioSource.clip = clip;
+                        audioSource.Play();
+
+                        Destroy(audioSource, clip.length);
+                    }
+                }
+
                 listOfCompletedCoffee.Remove(completedOrder);
                 listOfCompletedOrder.Add(completedOrder);
                 return true;
