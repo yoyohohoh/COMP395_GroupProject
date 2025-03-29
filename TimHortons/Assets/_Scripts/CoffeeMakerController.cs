@@ -18,11 +18,11 @@ public class CoffeeMakerController : MonoBehaviour
     {
         if (CheckSteps())
         { 
-            stepText.text = "Make Coffee"; 
+            stepText.text = "Done"; 
         }
         else
         {
-            stepText.text = "Making Coffee";
+            stepText.text = "Remake";
         }
     }
 

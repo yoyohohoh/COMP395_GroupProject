@@ -1,6 +1,9 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEngine.UI;
+using Unity.Burst.Intrinsics;
 
 public class DataKeeper : MonoBehaviour
 {
@@ -13,10 +16,9 @@ public class DataKeeper : MonoBehaviour
     public int totalTask;
     public string currentScene;
     public bool isTutorialCompleted;
-
     public float targetSale;
     public float todaySale;
-
+    public string playerLevel;
     private void Awake()
     {
         if (Instance != null)
@@ -56,10 +58,12 @@ public class DataKeeper : MonoBehaviour
     void Update()
     {
         // PJ1
-        //if (SceneManager.GetActiveScene().name == "GameOver")
-        //{
-        //    GameObject.Find("CustomerCount").GetComponentInChildren<Text>().text = "Today's Customer: " + totalCustomerCount.ToString();
-        //}
+        if (SceneManager.GetActiveScene().name == "GameOver")
+        {
+            //GameObject.Find("CustomerCount").GetComponentInChildren<Text>().text = "Today's Customer: " + totalCustomerCount.ToString();
+            GameObject.Find("CustomerCount").GetComponentInChildren<Text>().text = "Daily Sales: $" + todaySale.ToString();
+            GameObject.Find("PlayerLevel").GetComponentInChildren<Text>().text = "You are promoted to " + playerLevel + " !";
+        }
 
         if (taskList.Count >= totalTask + 1 && currentScene == "Tutorial")
         {
@@ -67,7 +71,7 @@ public class DataKeeper : MonoBehaviour
             isTutorialCompleted = true;
         }
     }
-
+    
     public void RecordCurrentTask()
     {
         if (taskList.Count == 0 || !taskList.Contains(currentScene))

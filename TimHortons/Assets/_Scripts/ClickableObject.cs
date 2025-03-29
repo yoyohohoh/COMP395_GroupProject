@@ -29,7 +29,7 @@ public class ClickableObject : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            Debug.Log("Clicked on: " + hit.transform.name);
+            //Debug.Log("Clicked on: " + hit.transform.name);
             Transform hitObject = hit.transform;
             objectName = hitObject.name;
             

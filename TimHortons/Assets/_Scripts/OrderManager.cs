@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
@@ -21,6 +21,8 @@ public class OrderManager : MonoBehaviour
     public Dictionary<string, string[]> recipes = new Dictionary<string, string[]>();
     public float totalSale;
     public TextMeshPro totalSaleTxt;
+    public TextMeshPro titleTxt;
+    string playerLevel;
     void Start()
     {
         recipes["Long Black"] = new string[] { "Ice", "Water", "Espresso" };
@@ -35,9 +37,30 @@ public class OrderManager : MonoBehaviour
         CoffeeLabel("Long Black", longblack, longblackTxt);
         totalSale = CalculateSale("Long Black") + CalculateSale("Caffe Latte");
         DataKeeper.Instance.todaySale = totalSale;
-        totalSaleTxt.text = "$" + totalSale.ToString();
+        totalSaleTxt.text = "$" + totalSale.ToString();        
+        titleTxt.text = CheckPlayerLevel(totalSale);
+        DataKeeper.Instance.playerLevel = playerLevel;
     }
+    string CheckPlayerLevel(float sales)
+    {
+        switch (sales)
+        {
+            case >= 200:
+                playerLevel = "Café Manager";
+                break;
+            case >= 180 and < 200:
+                playerLevel = "Best Barista";
+                break;
+            case >= 60 and < 180:
+                playerLevel = "Barista";
+                break;
+            default:
+                playerLevel = "Cafe Trainee";
+                break;
+        }
 
+        return playerLevel;
+    }
     float CalculateSale(string coffeeName)
     {
         switch (coffeeName)
@@ -120,7 +143,6 @@ public class OrderManager : MonoBehaviour
                 {
                     AudioSource audioSource = audioObject.AddComponent<AudioSource>();
                     AudioClip clip = Resources.Load<AudioClip>("BGM/cash-register");
-                    Debug.Log(clip);
                     if (clip)
                     {
                         audioSource.clip = clip;
