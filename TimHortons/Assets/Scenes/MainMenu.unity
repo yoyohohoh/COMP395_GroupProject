@@ -1310,7 +1310,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: f731f7e07d26d054784f7b256aa6de97, type: 3}
   m_Resource: {fileID: 8300000, guid: f731f7e07d26d054784f7b256aa6de97, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1402,12 +1402,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 753584796}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -20.981745, y: 3.497781, z: -22.928062}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1898398013}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &808084110
 GameObject:
@@ -2856,6 +2856,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalCustomerCount: 0
+  taskList: []
+  totalTask: 0
+  currentScene: 
+  isTutorialCompleted: 0
+  targetSale: 0
+  todaySale: 0
+  playerLevel: 
 --- !u!4 &1898398013
 Transform:
   m_ObjectHideFlags: 0
@@ -2868,7 +2875,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 753584798}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1908001197
@@ -3194,5 +3202,4 @@ SceneRoots:
   - {fileID: 1039494846}
   - {fileID: 973485596}
   - {fileID: 1723826613}
-  - {fileID: 753584798}
   - {fileID: 1898398013}
