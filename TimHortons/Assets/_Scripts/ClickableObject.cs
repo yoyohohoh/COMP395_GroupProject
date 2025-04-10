@@ -45,7 +45,8 @@ public class ClickableObject : MonoBehaviour
             if (hitObject.CompareTag("AI"))
             {
                 OrderController orderController = hitObject.GetComponent<OrderController>();
-                orderController.isOrderReceived = GameObject.Find("OrderManager").GetComponent<OrderManager>().CheckCompletedCoffee(orderController.order);
+                if(!orderController.isOrderReceived)
+                { orderController.isOrderReceived = GameObject.Find("OrderManager").GetComponent<OrderManager>().CheckCompletedCoffee(orderController.order); }
             }
             else if ((hitObject.CompareTag("Ingredient")))
             {
