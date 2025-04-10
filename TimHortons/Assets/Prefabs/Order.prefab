@@ -146,6 +146,8 @@ MonoBehaviour:
   animator: {fileID: 4438304562750884978}
   detectionRadius: 5
   alignmentDistance: 1
+  head: {fileID: 4438304562745499650}
+  body: {fileID: 4438304562746684080}
   order: 
   isOrderPlaced: 0
   isOrderReceived: 0
@@ -493,6 +495,16 @@ PrefabInstance:
 --- !u!4 &4438304562743730740 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7478225697115775088, guid: 6fb37f825ee63264b9c2600bf1a52006, type: 3}
+  m_PrefabInstance: {fileID: 6512197203025281604}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &4438304562745499650 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7478225697118200390, guid: 6fb37f825ee63264b9c2600bf1a52006, type: 3}
+  m_PrefabInstance: {fileID: 6512197203025281604}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &4438304562746684080 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7478225697104703732, guid: 6fb37f825ee63264b9c2600bf1a52006, type: 3}
   m_PrefabInstance: {fileID: 6512197203025281604}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &4438304562750884978 stripped

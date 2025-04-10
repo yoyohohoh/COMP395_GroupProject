@@ -146,6 +146,8 @@ MonoBehaviour:
   animator: {fileID: 5255218021948274082}
   detectionRadius: 5
   alignmentDistance: 1
+  head: {fileID: 5255218021953624566}
+  body: {fileID: 5255218021944052524}
   order: 
   isOrderPlaced: 0
   isOrderReceived: 0
@@ -317,6 +319,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 67742350dd927224483011b2c109953c, type: 2}
+    - target: {fileID: 8619338778009079821, guid: 47a3741b253f088469eedd6d403dd89a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8619338778009079851, guid: 47a3741b253f088469eedd6d403dd89a, type: 3}
       propertyPath: m_Name
       value: TT_demo_police
@@ -366,9 +372,19 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47a3741b253f088469eedd6d403dd89a, type: 3}
+--- !u!137 &5255218021944052524 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8619338777995484291, guid: 47a3741b253f088469eedd6d403dd89a, type: 3}
+  m_PrefabInstance: {fileID: 4571226194281715631}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &5255218021948274082 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 8619338777999598093, guid: 47a3741b253f088469eedd6d403dd89a, type: 3}
+  m_PrefabInstance: {fileID: 4571226194281715631}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &5255218021953624566 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8619338778006883929, guid: 47a3741b253f088469eedd6d403dd89a, type: 3}
   m_PrefabInstance: {fileID: 4571226194281715631}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &5255218021955525604 stripped

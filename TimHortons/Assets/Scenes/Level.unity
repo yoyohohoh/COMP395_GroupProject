@@ -2099,6 +2099,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
+  highlightMaterial: {fileID: 2100000, guid: a47c36b6220503a4b85258dcd5286db6, type: 2}
 --- !u!1001 &339168127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9921,7 +9922,7 @@ MonoBehaviour:
   - {fileID: 7420887337991129463, guid: 85226af612db0594b82310eb6950ee1b, type: 3}
   customerPrefab: {fileID: 7420887337991129463, guid: ee25b71f13506f64cb5ed4c79da2dffb, type: 3}
   customerSpawnPlace: {fileID: 1383795452}
-  generateOrders: 1
+  generateOrders: 0
   orderCount: 0
   simulationParameters: {fileID: 11400000, guid: 1e66d38161191944696fb5bccf244d3c, type: 2}
   startTime: 0

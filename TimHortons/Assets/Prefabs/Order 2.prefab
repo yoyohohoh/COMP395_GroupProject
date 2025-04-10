@@ -146,6 +146,8 @@ MonoBehaviour:
   animator: {fileID: 7145182523943083260}
   detectionRadius: 5
   alignmentDistance: 1
+  head: {fileID: 7145182523931701498}
+  body: {fileID: 7145182523938907550}
   order: 
   isOrderPlaced: 0
   isOrderReceived: 0
@@ -366,9 +368,19 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2db03e7c8a8135146b280e5da7e0289c, type: 3}
+--- !u!23 &7145182523931701498 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6252356961379390523, guid: 2db03e7c8a8135146b280e5da7e0289c, type: 3}
+  m_PrefabInstance: {fileID: 3885511509688886465}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7145182523933471418 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6252356961376966267, guid: 2db03e7c8a8135146b280e5da7e0289c, type: 3}
+  m_PrefabInstance: {fileID: 3885511509688886465}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &7145182523938907550 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6252356961363788127, guid: 2db03e7c8a8135146b280e5da7e0289c, type: 3}
   m_PrefabInstance: {fileID: 3885511509688886465}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &7145182523943083260 stripped

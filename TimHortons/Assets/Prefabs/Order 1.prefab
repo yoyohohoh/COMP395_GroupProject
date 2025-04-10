@@ -146,6 +146,8 @@ MonoBehaviour:
   animator: {fileID: 1474663435537186630}
   detectionRadius: 5
   alignmentDistance: 1
+  head: {fileID: 1474663435542238072}
+  body: {fileID: 1474663435532927382}
   order: 
   isOrderPlaced: 0
   isOrderReceived: 0
@@ -313,9 +315,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4217583643496441776}
     m_Modifications:
+    - target: {fileID: 7447163605589988578, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7447163605589988728, guid: 907fd825e3988774caab4234b943bf44, type: 3}
       propertyPath: m_Name
       value: TT_demo_male_B
+      objectReference: {fileID: 0}
+    - target: {fileID: 7447163605589989890, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7447163605590411544, guid: 907fd825e3988774caab4234b943bf44, type: 3}
       propertyPath: m_LocalScale.x
@@ -382,9 +392,19 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+--- !u!137 &1474663435532927382 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7447163605595199886, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+  m_PrefabInstance: {fileID: 8299761668469725208}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1474663435537186630 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 7447163605599512414, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+  m_PrefabInstance: {fileID: 8299761668469725208}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1474663435542238072 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7447163605587987296, guid: 907fd825e3988774caab4234b943bf44, type: 3}
   m_PrefabInstance: {fileID: 8299761668469725208}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1474663435544662272 stripped
