@@ -12,7 +12,7 @@ public class OrderController : MonoBehaviour
 
     [Header("Detection")]
     public float detectionRadius = 5f; // Distance at which AIs detect each other
-    public float alignmentDistance = 2f; // Distance at which they align
+    public float alignmentDistance = 3f; // Distance at which they align
     private Rigidbody rb;
     public MeshRenderer head;
     public SkinnedMeshRenderer body;
